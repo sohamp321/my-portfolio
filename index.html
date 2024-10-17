@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soham's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="myInfo">
+        <img src="./images/profile-image.png" alt="Profile Image">
+        <span class="myName">Soham Parikh</span>
+        <p class="intro-text">
+            <span class="static-text">I am</span>
+            <span id="dynamic-text"></span>
+        </p>
+    </div>
+    <div class="right">
+        <div class="navBar" role="navigation">
+            <button id="btn-aboutMe" aria-label="About Me">About Me</button>
+            <button id="btn-projects" aria-label="Projects">Projects</button>
+            <button id="btn-resume" aria-label="Resume">Resume</button>
+            <button id="btn-contactMe" aria-label="Contact Me">Contact Me</button>
+        </div>
+        <div class="content-container"></div> <!-- Dynamic content will load here -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Typewriter Effect
+        const phrases = [
+            'Coder',
+            'Gamer',
+            'AI Enthusiast',
+            'Movie Fanatic',
+            'Dancer',
+            'Data Analyst',
+            'UI Maker'
+        ];
+
+        const typewriter = new Typewriter('#dynamic-text', {
+            loop: true,
+            delay: 75,
+        });
+
+        phrases.forEach((phrase) => {
+            typewriter
+                .typeString(`<span class="large-font">${phrase}</span>`)
+                .pauseFor(1000)
+                .deleteChars(phrase.length)
+                .pauseFor(500);
+        });
+
+        typewriter.start();
+
+        // Tab Navigation JavaScript
+        const tabs = document.querySelectorAll('.navBar button');
+        const contentContainer = document.querySelector('.content-container');
+
+        // Function to load HTML file into the content container
+        function loadSection(fileName) {
+            contentContainer.innerHTML = `<p>Loading...</p>`; // Add a loading message
+            fetch(`pages/${fileName}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    contentContainer.innerHTML = data; // Replace with fetched content
+                })
+                .catch(error => {
+                    console.error('Error loading content:', error);
+                    contentContainer.innerHTML = `<p class="error-message">Sorry, the content could not be loaded. Please try again later.</p>`;
+                });
+        }
+
+        // Initially load the "About Me" section
+        loadSection('aboutMe.html');
+
+        // Add event listeners to buttons to load corresponding content
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                const id = e.target.id.replace('btn-', ''); // Extract corresponding file name
+                loadSection(`${id}.html`);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

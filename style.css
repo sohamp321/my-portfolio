@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+body {
+  background-image: url(./images/background.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+}
+
+.myInfo {
+  margin: 2vh 1vw 2vh 1vw;
+  height: 96vh;
+  width: 25vw;
+  background-color: white;
+  border: transparent;
+  border-radius: 30px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background: rgb(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.myInfo img {
+  height: 30vh;
+  border-radius: 30px;
+}
+
+
+.myName{
+    margin-top: 5vh;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.intro-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em; /* Adjust as needed */
+    margin-top: 1vh;
+}
+
+.static-text {
+    margin-right: 5px; /* Adjust spacing between "I am" and dynamic text */
+    font-size: 1em;
+}
+
+#dynamic-text{
+    font-size: 1.2em;
+    display: inline-block;
+    width: 175px; 
+    text-align: left;
+    overflow: hidden;
+    font-weight: 600;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+}
+
+.navBar {
+    margin-top: 2vh;
+    width: 72vw;
+    height: 10vh;
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(204, 213, 174, 0.35); 
+    color: #fff;
+    border-radius: 40px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    flex-direction: row;
+}
+
+.navBar button {
+    height: 5vh;
+    width: 10vw;
+    background: transparent;
+    border: 1px transparent solid;
+    border-radius: 30px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    font-size: 1em;
+    color: #fff; /* Text color */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.navBar button:hover {
+    background: rgba(255, 255, 255, 0.2); /* Lighten the background on hover */
+    border: 1px solid transparent; /* Add a visible border color */
+    color: black; /* Change text color on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+    cursor: pointer;
+}
+.tab-content {
+    display: none; /* Hide all tab sections initially */
+}
+
+#aboutMe{
+    margin-top: 1vh;
+    height:85vh;
+    border-radius: 30px;
+    background-color: rgb(1, 255, 253, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+#projects{
+    margin-top: 1vh;
+    height:85vh;
+    border-radius: 30px;
+    background-color: rgb(1, 255, 253, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+#resume{
+    margin-top: 1vh;
+    height:85vh;
+    border-radius: 30px;
+    background-color: rgb(1, 255, 253, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+#contactMe{
+    margin-top: 1vh;
+    height:85vh;
+    border-radius: 30px;
+    background-color: rgb(1, 255, 253, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+
+.content-container {
+    margin-top: 1vh;
+    height:85vh;
+    border-radius: 30px;
+    background-color: rgb(1, 255, 253, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+.error-message {
+    color: red;
+    font-size: 1.1em;
+}
+
+

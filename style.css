@@ -1,160 +1,452 @@
 * {
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+  
+  body {
+    background-image: url(./images/WhatsApp\ Image\ 2024-10-18\ at\ 3.06.29\ PM.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+  }
+  
+  .myInfo {
+    margin: 2vh 1vw 2vh 1vw;
+    height: 96vh;
+    width: 25vw;
+    background-color: white;
+    border: transparent;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background: rgb(255, 255, 255, 0.35);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  
+  .myInfo img {
+    height: 30vh;
+    border-radius: 30px;
+  }
+  
+  
+  .myName{
+      margin-top: 5vh;
+      font-size: 35px;
+      font-weight: bold;
+  }
+  
+  .intro-text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2em; /* Adjust as needed */
+      margin-top: 1vh;
+  }
+  
+  .static-text {
+      margin-right: 5px; /* Adjust spacing between "I am" and dynamic text */
+      font-size: 1em;
+  }
+  
+  #dynamic-text{
+      font-size: 1.2em;
+      display: inline-block;
+      width: 175px; 
+      text-align: left;
+      overflow: hidden;
+      font-weight: 600;
+  }
+  
+  .right{
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .navBar {
+      margin-top: 2vh;
+      width: 72vw;
+      height: 10vh;
+      display: flex;
+      position: relative;
+      justify-content: space-around;
+      align-items: center;
+      background: rgba(204, 213, 174, 0.35); 
+      color: #fff;
+      border-radius: 40px;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      flex-direction: row;
+  }
+  
+  .navBar button {
+      height: 5vh;
+      width: 10vw;
+      background: transparent;
+      border: 1px transparent solid;
+      border-radius: 30px;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      font-size: 1em;
+      color: #fff; /* Text color */
+      cursor: pointer;
+      transition: all 0.3s ease;
+      cursor: pointer;
+  }
+  
+  .navBar button:hover {
+      background: rgba(255, 255, 255, 0.2); /* Lighten the background on hover */
+      border: 1px solid transparent; /* Add a visible border color */
+      color: black; /* Change text color on hover */
+      transform: scale(1.05); /* Slightly enlarge button on hover */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+      cursor: pointer;
+  }
+  .tab-content {
+      display: none; /* Hide all tab sections initially */
+  }
+  
+  #aboutMe{
+    margin-top: 1vh;
+    height:85vh;
+    margin-right: 1vw;
+    border-radius: 30px;
+    background-color: rgb(1, 255, 253, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  #projects{
+      margin-top: 1vh;
+      height:85vh;
+      margin-right: 1vw;
+      border-radius: 30px;
+      background-color: rgb(1, 255, 253, 0.2);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+  }
+  #resume{
+      margin-top: 1vh;
+      height:85vh;
+      border-radius: 30px;
+      background-color: rgb(1, 255, 253, 0.2);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+  }
+  #contactMe{
+    margin-top: 1vh;
+    height:85vh;
+    margin-right: 1vw;
+    border-radius: 30px;
+    background-color: rgb(1, 255, 253, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  .content-container {
+      margin-top: 1vh;
+      height:85vh;
+      border-radius: 30px;
+      background-color: rgb(1, 255, 253, 0.2);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+  }
+  .error-message {
+      color: red;
+      font-size: 1.1em;
+  }
+  
+  .project-section {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to multiple rows */
+    justify-content: space-between; /* Space cards evenly across each row */
+    overflow-y: auto; /* Allow vertical scrolling */
+    width: 70vw; /* Set a fixed width for the section */
+    margin: 1vh 1vw;
+    max-height: 80vh; /* Limit the height of the project section */
+    scroll-snap-type: y mandatory;
+    gap: 20px; 
 }
 
-body {
-  background-image: url(./images/background.jpeg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
+.project-card {
+    width: calc(32% - 20px); /* Adjust width to ensure 3 cards per row, with spacing */
+    max-width: 400px; /* Set a max-width to maintain a consistent size */
+    background-color: #86b5b8;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    margin: 10px; /* Set margin for spacing between cards */
+    /* scroll-snap-align: start;  */
 }
 
-.myInfo {
-  margin: 2vh 1vw 2vh 1vw;
-  height: 96vh;
-  width: 25vw;
-  background-color: white;
-  border: transparent;
-  border-radius: 30px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  background: rgb(255, 255, 255, 0.35);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+.project-section::-webkit-scrollbar {
+    width: 8px; /* Adjust scrollbar width for better visibility */
 }
 
-.myInfo img {
-  height: 30vh;
-  border-radius: 30px;
+.project-section::-webkit-scrollbar-thumb {
+    background: rgba(100, 100, 100, 0.5); /* Scrollbar color */
+    border-radius: 4px; /* Rounded corners for scrollbar */
 }
 
+.project-card img {
+    object-fit: cover;
+    width: 20vw;
+    height: 20vh;
+    border-radius: 15px;
+    margin-bottom: 1vh;
+}
 
-.myName{
-    margin-top: 5vh;
-    font-size: 35px;
+.project-title {
+    color: rgb(5, 5, 5);
+    font-size: 1em;
+    text-align: left;
     font-weight: bold;
+    margin-left: 0.7vw;
 }
 
-.intro-text {
+/* Updated .desc styles to always show the content */
+.desc {
+    max-height: none; /* Remove max-height restriction */
+    max-width: 20vw;
+    overflow: visible; /* Ensure all content is visible */
+    font-size: 0.8em;
+    color: rgb(0, 0, 0);
+    margin-left: 0.7vw;
+    margin-bottom: 0.5vh;
+    margin-top: 0.5vh;
+    padding-bottom: 0.5vh; /* Add padding to create space between desc and tech stack */
+}
+
+/* Remove the hover effect */
+.project-card:hover {
+    background-color: #86b5b8;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.project-card:hover::after , .project-card:hover::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle) , blue , rgb(128, 217, 255) , blue);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 5px;
+    border-radius: 20px;
+    animation: 3s spin linear infinite;
+}
+
+.project-card:hover:before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    from{
+        --angle : 0deg;
+    }
+    to{
+        --angle : 360deg;
+    }
+}
+
+.tech-stack {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
+    height: auto; 
+    margin-top: 1vh; /* Add margin to separate from the description */
+    padding-top: 1vh; /* Add padding for better spacing */
+}
+
+.tech-stack img {
+    height: 3vh;
+    width: auto;
+    margin: 0 1vh;
+}
+
+.link {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2em; /* Adjust as needed */
-    margin-top: 1vh;
 }
 
-.static-text {
-    margin-right: 5px; /* Adjust spacing between "I am" and dynamic text */
-    font-size: 1em;
+.link img {
+    height: 4vh;
+    width: auto;
+    margin-left: 0.5vh;
 }
 
-#dynamic-text{
-    font-size: 1.2em;
-    display: inline-block;
-    width: 175px; 
-    text-align: left;
-    overflow: hidden;
+
+.resume-section{
+    height: 80vh;
+    width: 70vw;
+    margin: 2vh 1vw;
+    border: transparent;
+    border-radius: 20px;
+}
+
+.contactMe{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+/* Container styling */
+.emailMe {
+    width: 32vw;
+    height: auto;
+    padding: 20px;
+}
+
+/* Left contact area */
+.left-contact {
+    margin: 0;
+    padding: 10px;
+    color: #fff; /* Updated to a more visible color */
+}
+
+/* Header styling */
+.left-contact h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #fff; /* Updated to make it pop more */
+}
+
+/* Form labels */
+#emailForm label {
+    font-size: 1.2rem;
+    color: #fff;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Input field styling */
+#emailForm input[type="text"],
+#emailForm textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+#emailForm input[type="text"]:focus,
+#emailForm textarea:focus {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styling */
+#emailForm button[type="submit"] {
+    padding: 10px 20px;
+    background-color: rgba(40, 235, 46, 0.4);
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    height: 6vh;
+}
+
+#emailForm button[type="submit"]:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+
+.right-contact {
+    width: 36vw;
+    height: 84vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    justify-content: space-between; /* Distributes items evenly in a row */
+    align-content: flex-start; /* Starts placing rows from the top */
+    gap: 10px; /* Adds space between icons */
+    padding: 10px; /* Adds padding inside the container */
+}
+
+.links .icon {
+    flex: 0 0 calc(33.33% - 10px); 
+    height: 15vh;
+    width: 15vh;
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    box-sizing: border-box; /* Ensures padding/borders don’t affect the width */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    border-radius: 30px;
+    border: 1px solid transparent;
+    transition: transform 0.2s; /* Adds a small hover effect */
+}
+
+.icon img {
+    height: 11vh; /* Slightly smaller to fit well within the icon */
+    object-fit: contain;
+}
+
+.icon a {
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    color: black; /* Sets the default text color */
+}
+
+.icon a:hover {
+    color: #add6ff; /* Changes text color on hover */
+}
+
+.icon:hover {
+    transform: scale(1.05); /* Slightly enlarges the icon on hover */
+    border-color: #add6ff; /* Adds border color change on hover */
+}
+
+.about-section{
+    width: 69vw; /* Set a fixed width for the section */
+    margin: 2vh 1vw;
+    margin-top: 7vh;
+    padding-left: 1vw;
+}
+
+.aboutme{
+    width: 100%;
+    color: white;
+}
+
+.hello-msg{
+    font-size: 40px;
+    color: rgba(223, 226, 224, 0.712);
     font-weight: 600;
 }
-
-.right{
-    display: flex;
-    flex-direction: column;
-}
-
-.navBar {
-    margin-top: 2vh;
-    width: 72vw;
-    height: 10vh;
-    display: flex;
-    position: relative;
-    justify-content: space-around;
-    align-items: center;
-    background: rgba(204, 213, 174, 0.35); 
-    color: #fff;
-    border-radius: 40px;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    flex-direction: row;
-}
-
-.navBar button {
-    height: 5vh;
-    width: 10vw;
-    background: transparent;
-    border: 1px transparent solid;
-    border-radius: 30px;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    font-size: 1em;
-    color: #fff; /* Text color */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.navBar button:hover {
-    background: rgba(255, 255, 255, 0.2); /* Lighten the background on hover */
-    border: 1px solid transparent; /* Add a visible border color */
-    color: black; /* Change text color on hover */
-    transform: scale(1.05); /* Slightly enlarge button on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
-    cursor: pointer;
-}
-.tab-content {
-    display: none; /* Hide all tab sections initially */
-}
-
-#aboutMe{
-    margin-top: 1vh;
-    height:85vh;
-    border-radius: 30px;
-    background-color: rgb(1, 255, 253, 0.2);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-}
-#projects{
-    margin-top: 1vh;
-    height:85vh;
-    border-radius: 30px;
-    background-color: rgb(1, 255, 253, 0.2);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-}
-#resume{
-    margin-top: 1vh;
-    height:85vh;
-    border-radius: 30px;
-    background-color: rgb(1, 255, 253, 0.2);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-}
-#contactMe{
-    margin-top: 1vh;
-    height:85vh;
-    border-radius: 30px;
-    background-color: rgb(1, 255, 253, 0.2);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-}
-
-
-.content-container {
-    margin-top: 1vh;
-    height:85vh;
-    border-radius: 30px;
-    background-color: rgb(1, 255, 253, 0.2);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-}
-.error-message {
-    color: red;
-    font-size: 1.1em;
-}
-
-

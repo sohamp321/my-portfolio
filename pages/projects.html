@@ -1,3 +1,171 @@
-<div>
-    Projects
-</div>
+<div class="project-section" id="project-section">
+  </div>
+
+
+<script>
+    (function() {
+        // Your project data
+        const projects = [
+            {
+                "title": "Decentralised Music Streaming Platform",
+                "image": "../images/music.avif",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+                "linkIcon": "../images/git.png",
+                "linkUrl": "https://github.com/yourusername/music-streaming",
+                "techStack": [
+                    "../images/html-5.png",
+                    "../images/html-5.png",
+                    "../images/html-5.png",
+                ]
+            },
+            {
+                "title": "Decentralised Music Streaming Platform",
+                "image": "../images/music.avif",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+                "linkIcon": "../images/git.png",
+                "linkUrl": "https://github.com/yourusername/music-streaming",
+                "techStack": [
+                    "../images/html-5.png",
+                    "../images/html-5.png",
+                    "../images/html-5.png",
+                ]
+            },
+            {
+                "title": "Decentralised Music Streaming Platform",
+                "image": "../images/music.avif",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+                "linkIcon": "../images/git.png",
+                "linkUrl": "https://github.com/yourusername/music-streaming",
+                "techStack": [
+                    "../images/html-5.png",
+                    "../images/html-5.png",
+                    "../images/html-5.png",
+                ]
+            },
+            {
+                "title": "Decentralised Music Streaming Platform",
+                "image": "../images/music.avif",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+                "linkIcon": "../images/git.png",
+                "linkUrl": "https://github.com/yourusername/music-streaming",
+                "techStack": [
+                    "../images/html-5.png",
+                    "../images/html-5.png",
+                    "../images/html-5.png",
+                ]
+            },
+            {
+                "title": "Decentralised Music Streaming Platform",
+                "image": "../images/music.avif",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+                "linkIcon": "../images/git.png",
+                "linkUrl": "https://github.com/yourusername/music-streaming",
+                "techStack": [
+                    "../images/html-5.png",
+                    "../images/html-5.png",
+                    "../images/html-5.png",
+                ]
+            },
+            {
+                "title": "Decentralised Music Streaming Platform",
+                "image": "../images/music.avif",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+                "linkIcon": "../images/git.png",
+                "linkUrl": "https://github.com/yourusername/music-streaming",
+                "techStack": [
+                    "../images/html-5.png",
+                    "../images/html-5.png",
+                    "../images/html-5.png",
+                ]
+            },
+            {
+                "title": "Decentralised Music Streaming Platform",
+                "image": "../images/music.avif",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+                "linkIcon": "../images/git.png",
+                "linkUrl": "https://github.com/yourusername/music-streaming",
+                "techStack": [
+                    "../images/html-5.png",
+                    "../images/html-5.png",
+                    "../images/html-5.png",
+                ]
+            },
+        ];
+
+        // Function to generate project cards
+        function generateProjectCards() {
+            const projectSection = document.getElementById('project-section');
+
+            if (projectSection) {
+                projects.forEach(project => {
+                    // Create the project card container
+                    const projectCard = document.createElement('div');
+                    projectCard.classList.add('project-card');
+
+                    // Project image
+                    const img = document.createElement('img');
+                    img.src = project.image;
+                    img.alt = project.title;
+                    projectCard.appendChild(img);
+
+                    // Link section with title and icon
+                    const linkDiv = document.createElement('div');
+                    linkDiv.classList.add('link');
+
+                    const title = document.createElement('p');
+                    title.classList.add('project-title');
+                    title.textContent = project.title;
+                    linkDiv.appendChild(title);
+
+                    // Wrap the linkIcon in an <a> tag
+                    const linkAnchor = document.createElement('a');
+                    linkAnchor.href = project.linkUrl;
+                    linkAnchor.target = '_blank'; // Open link in a new tab
+                    linkAnchor.rel = 'noopener noreferrer'; // Security reasons
+
+                    const linkIcon = document.createElement('img');
+                    linkIcon.src = project.linkIcon;
+                    linkIcon.alt = 'GitHub Repository';
+
+                    linkAnchor.appendChild(linkIcon);
+                    linkDiv.appendChild(linkAnchor);
+
+                    projectCard.appendChild(linkDiv);
+
+                    // Description
+                    const descDiv = document.createElement('div');
+                    descDiv.classList.add('desc');
+                    descDiv.textContent = project.description;
+                    projectCard.appendChild(descDiv);
+
+                    // Tech stack
+                    const techStackDiv = document.createElement('div');
+                    techStackDiv.classList.add('tech-stack');
+
+                    project.techStack.forEach(techIconSrc => {
+                        const techIcon = document.createElement('img');
+                        techIcon.src = techIconSrc;
+                        techIcon.alt = 'Tech Icon';
+                        techStackDiv.appendChild(techIcon);
+                    });
+
+                    projectCard.appendChild(techStackDiv);
+
+                    // Append the project card to the project section
+                    projectSection.appendChild(projectCard);
+                });
+            } else {
+                console.error('Project section not found');
+            }
+        }
+
+        // Execute the function after ensuring the DOM is ready
+        if (document.readyState === 'loading') {
+            // DOM not ready yet, wait for it
+            document.addEventListener('DOMContentLoaded', generateProjectCards);
+        } else {
+            // DOM is already ready
+            generateProjectCards();
+        }
+    })();
+</script>

@@ -8,6 +8,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS
+        emailjs.init("5PCjSE7grsVGWItAd"); // Replace with your EmailJS user ID
+
+        // Function to initialize the email form
+        function initializeEmailForm() {
+            const emailForm = document.getElementById('emailForm');
+            if (emailForm) {
+                emailForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent the default form submission
+
+                    // Get form values
+                    const subject = document.getElementById('subject').value;
+                    const body = document.getElementById('body').value;
+
+                    // Set up email parameters
+                    const templateParams = {
+                        subject: subject,
+                        body: body,
+                        to_email: "parikh.4@iitj.ac.in" // Replace with your email address
+                    };
+
+                    // Send the email
+                    emailjs.send("service_64gfzpb", "template_fny075w", templateParams)
+                        .then(function(response) {
+                            alert('Email sent successfully!');
+                        }, function(error) {
+                            alert('Failed to send email. Please try again.');
+                        });
+                });
+            }
+        }
+    </script>
+    
 </head>
 <body>
     <div class="myInfo">
@@ -30,8 +66,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.js"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // Typewriter Effect
+        document.addEventListener("DOMContentLoaded", () => {
         const phrases = [
             'Coder',
             'Gamer',
@@ -57,40 +92,55 @@
 
         typewriter.start();
 
-        // Tab Navigation JavaScript
-        const tabs = document.querySelectorAll('.navBar button');
-        const contentContainer = document.querySelector('.content-container');
+            const tabs = document.querySelectorAll('.navBar button');
+            const contentContainer = document.querySelector('.content-container');
+        
+            function loadSection(fileName) {
+                contentContainer.innerHTML = `<p>Loading...</p>`;
+                fetch(`pages/${fileName}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        contentContainer.innerHTML = data;
+        
+                        // Execute any script tags found in the loaded HTML
+                        const scripts = contentContainer.querySelectorAll('script');
+                        scripts.forEach(script => {
+                            const newScript = document.createElement('script');
+                            if (script.src) {
+                                newScript.src = script.src;
+                            } else {
+                                newScript.textContent = script.textContent;
+                            }
+                            document.head.appendChild(newScript);
+                        });
 
-        // Function to load HTML file into the content container
-        function loadSection(fileName) {
-            contentContainer.innerHTML = `<p>Loading...</p>`; // Add a loading message
-            fetch(`pages/${fileName}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    contentContainer.innerHTML = data; // Replace with fetched content
-                })
-                .catch(error => {
-                    console.error('Error loading content:', error);
-                    contentContainer.innerHTML = `<p class="error-message">Sorry, the content could not be loaded. Please try again later.</p>`;
+                        if (fileName === 'contactMe.html') {
+                            initializeEmailForm();
+                        } 
+
+                    })
+                    .catch(error => {
+                        console.error('Error loading content:', error);
+                        contentContainer.innerHTML = `<p class="error-message">Sorry, the content could not be loaded. Please try again later.</p>`;
+                    });
+            }
+        
+            // Initially load the "About Me" section
+            loadSection('aboutMe.html');
+        
+            tabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    const id = e.target.id.replace('btn-', '');
+                    loadSection(`${id}.html`);
                 });
-        }
-
-        // Initially load the "About Me" section
-        loadSection('aboutMe.html');
-
-        // Add event listeners to buttons to load corresponding content
-        tabs.forEach(tab => {
-            tab.addEventListener('click', (e) => {
-                const id = e.target.id.replace('btn-', ''); // Extract corresponding file name
-                loadSection(`${id}.html`);
             });
         });
-    });
     </script>
+        
 </body>
 </html>

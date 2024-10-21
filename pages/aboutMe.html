@@ -1,3 +1,186 @@
-<div>
-    About Me
+<div class="about-section">
+    <div class="aboutme">
+        <span class="hello-msg">Hello, </span>
+        <p>I'm a tech enthusiast driven by curiosity and a passion for exploring new horizons. I enjoy diving into my interests, continuously refining my skills, and setting ambitious goals to achieve. My journey reflects my commitment to learning, growth, and making impactful contributions. Here's a closer look at my evolving path in technology!</p>
+    </div>
+    <div class="about-tabs">
+        <div class="tab-titles">
+            <p class="tab-links active-link" onclick="opentab('skills-tab')">Skills</p>
+            <p class="tab-links" onclick="opentab('experience-tab')">Education</p>
+            <p class="tab-links" onclick="opentab('achievements-tab')">Achievements</p>
+        </div>
+    
+        <div class="tab-contents active-tab" id="skills-tab">
+            <ul>
+                <li>
+                    <span>Designing</span><br />
+                    <p class="Design">
+                        Designing Web/App interfaces <br />Platform -: Figma
+                    </p>
+                </li>
+                <li>
+                    <span>Coding</span><br />
+                    <p class="Design">
+                        Indulged in Competitive Programming <br />Languages -: Python & C++
+                    </p>
+                </li>
+                <li>
+                    <span>Developer</span><br />
+                    <p class="Design">
+                        Full Stack Web & Android developer <br />Tech stack -: HTML, CSS, JS, React, Flutter, Firebase
+                    </p>
+                </li>
+            </ul>
+        </div>
+    
+        <div class="tab-contents" id="experience-tab">
+            <ul>
+                <li>
+                    <span>Primary education</span><br />
+                    <p class="Design">
+                        Jaipuria Vidyalaya <br />J.L.N. Marg, Jaipur
+                    </p>
+                </li>
+                <li>
+                    <span>Secondary & Senior Secondary</span><br />
+                    <p class="Design">
+                        Jaipuria Vidyalaya <br />J.L.N. Marg, Jaipur
+                    </p>
+                </li>
+                <li>
+                    <span>College</span><br />
+                    <p class="Design">
+                        Indian Institute of Technology, Jodhpur <br />Surpura Bypass Rd, Karwar
+                    </p>
+                </li>
+            </ul>
+        </div>
+    
+        <div class="tab-contents" id="achievements-tab">
+            <ul>
+                <li>
+                    <span>Inter IIT Tech Meet</span><br />
+                    <p class="Design">
+                        Contingent Member of Inter IIT Tech Meet'23 & '24 <br />Gained 12th position in the Low Prep PS'23 <br />
+                        Gained 15th position in Mid Prep PS by Aptos'24
+                    </p>
+                </li>
+                <li>
+                    <span>Coding</span><br />
+                    <p class="Design">
+                        <a href="https://www.codechef.com/users/drishti_2904" target="_blank">Codechef</a>: 3* coder <br />
+                        <a href="https://codeforces.com/profile/DA2904" target="_blank">Codeforces</a>: pupil
+                    </p>
+                </li>
+                <li>
+                    <span>Software Development</span><br />
+                    <p class="Design">
+                        Got selected in top 10 teams of college in Smart India Hackathon 2022 <br />
+                        Secured 3rd position in Programming contest conducted by the Programming club of the institute
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
+
+<script>
+    function opentab(tabname) {
+        // Get all tab links and contents
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        // Remove the 'active' class from all tabs and contents
+        for (let tablink of tablinks) {
+            tablink.classList.remove("active-link");
+        }
+        for (let tabcontent of tabcontents) {
+            tabcontent.classList.remove("active-tab");
+        }
+
+        // Add 'active' class to the clicked tab and corresponding content
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+
+<style>
+
+.about-tabs {
+    margin-top: 2vh;
+    padding: 1vh;
+    width: 50vw;
+    margin-left: 8vw;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: transparent;
+    border-radius: 20px;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.about-tabs.hidden {
+    opacity: 0;
+    transform: scale(0.95); /* Slightly shrink the section */
+}
+
+
+.tab-links {
+    cursor: pointer;
+    padding: 10px;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    margin-right: 10px;
+    color: white;
+}
+
+.active-link {
+    border-bottom: 2px solid #757575;
+    font-weight: bold;
+}
+
+.tab-contents {
+    display: none;
+    margin-top: 20px;
+    padding-left: 0; /* Remove left padding */
+}
+
+.tab-contents ul {
+    list-style: none;
+    padding-left: 0; /* Remove left padding for the ul */
+    margin-left: 0; /* Remove left margin for the ul */
+}
+
+.tab-contents li {
+    margin-bottom: 2vh;
+    padding-left: 0; /* Remove left padding for li */
+}
+
+.tab-contents span {
+    font-weight: bold;
+    color: #cccccd;
+    padding-left: 1vh;
+}
+
+.tab-contents a {
+    text-decoration: none;
+    font-weight: 600;
+    color: rgb(178, 255, 255);
+}
+
+.tab-contents p {
+    color: rgb(193, 193, 193);
+    margin-left: 0; /* Remove left margin for paragraph */
+    padding-left: 1vh; /* Remove left padding for paragraph */
+}
+
+.active-tab {
+    display: block;
+}
+
+.Design {
+    margin: 5px 0;
+}
+
+</style>

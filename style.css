@@ -278,6 +278,9 @@
     height: 3vh;
     width: auto;
     margin: 0 1vh;
+    border: none;
+    border-radius: 0px;
+    object-fit: cover;
 }
 
 .link {

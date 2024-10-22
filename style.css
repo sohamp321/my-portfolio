@@ -295,6 +295,11 @@
     margin-left: 0.5vh;
 }
 
+.link a{
+    align-items: center;
+    justify-content: center;
+}
+
 
 .resume-section{
     height: 80vh;
